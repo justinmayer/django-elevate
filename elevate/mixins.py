@@ -1,8 +1,8 @@
-from sudo.decorators import sudo_required
+from elevate.decorators import elevate_required
 
 
-class SudoMixin(object):
+class ElevateMixin(object):
     @classmethod
     def as_view(cls, **initkwargs):
-        view = super(SudoMixin, cls).as_view(**initkwargs)
-        return sudo_required(view)
+        view = super(ElevateMixin, cls).as_view(**initkwargs)
+        return elevate_required(view)

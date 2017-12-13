@@ -3,7 +3,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.contenttypes',
 
-    'sudo',
+    'elevate',
 ]
 
 MIDDLEWARE_CLASSES = [

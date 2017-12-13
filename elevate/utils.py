@@ -1,8 +1,9 @@
 """
-sudo.utils
-~~~~~~~~~~
+elevate.utils
+~~~~~~~~~~~~~
 
-:copyright: (c) 2014 by Matt Robenolt.
+:copyright: (c) 2017-present by Justin Mayer.
+:copyright: (c) 2014-2016 by Matt Robenolt.
 :license: BSD, see LICENSE for more details.
 """
 import unicodedata
@@ -13,10 +14,10 @@ from django.utils.crypto import get_random_string, constant_time_compare
 from django.utils.encoding import force_text
 from django.utils.six.moves.urllib.parse import urlparse
 
-from sudo.settings import COOKIE_NAME, COOKIE_AGE, COOKIE_SALT
+from elevate.settings import COOKIE_NAME, COOKIE_AGE, COOKIE_SALT
 
 
-def grant_sudo_privileges(request, max_age=COOKIE_AGE):
+def grant_elevated_privileges(request, max_age=COOKIE_AGE):
     """
     Assigns a random token to the user's session
     that allows them to have elevated permissions
@@ -28,34 +29,34 @@ def grant_sudo_privileges(request, max_age=COOKIE_AGE):
         return
 
     if not user.is_authenticated():
-        raise ValueError('User needs to be logged in to be elevated to sudo')
+        raise ValueError('User needs to be logged in to be elevated')
 
     # Token doesn't need to be unique,
     # just needs to be unpredictable and match the cookie and the session
     token = get_random_string()
     request.session[COOKIE_NAME] = token
-    request._sudo = True
-    request._sudo_token = token
-    request._sudo_max_age = max_age
+    request._elevate = True
+    request._elevate_token = token
+    request._elevate_max_age = max_age
     return token
 
 
-def revoke_sudo_privileges(request):
+def revoke_elevated_privileges(request):
     """
-    Revoke sudo privileges from a request explicitly
+    Revoke elevated privileges from a request explicitly
     """
-    request._sudo = False
+    request._elevate = False
     if COOKIE_NAME in request.session:
         del request.session[COOKIE_NAME]
 
 
-def has_sudo_privileges(request):
+def has_elevated_privileges(request):
     """
-    Check if a request is allowed to perform sudo actions
+    Check if a request is allowed to perform Elevate actions
     """
-    if getattr(request, '_sudo', None) is None:
+    if getattr(request, '_elevate', None) is None:
         try:
-            request._sudo = (
+            request._elevate = (
                 request.user.is_authenticated() and
                 constant_time_compare(
                     request.get_signed_cookie(COOKIE_NAME, salt=COOKIE_SALT, max_age=COOKIE_AGE),
@@ -63,8 +64,8 @@ def has_sudo_privileges(request):
                 )
             )
         except (KeyError, BadSignature):
-            request._sudo = False
-    return request._sudo
+            request._elevate = False
+    return request._elevate
 
 
 def is_safe_url(url, host=None):

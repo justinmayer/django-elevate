@@ -1,15 +1,16 @@
 """
-sudo.middleware
-~~~~~~~~~~~~~~~
+elevate.middleware
+~~~~~~~~~~~~~~~~~~
 
-:copyright: (c) 2014 by Matt Robenolt.
+:copyright: (c) 2017-present by Justin Mayer.
+:copyright: (c) 2014-2016 by Matt Robenolt.
 :license: BSD, see LICENSE for more details.
 """
-from sudo.settings import (
+from elevate.settings import (
     COOKIE_DOMAIN, COOKIE_HTTPONLY, COOKIE_NAME,
     COOKIE_PATH, COOKIE_SECURE, COOKIE_SALT,
 )
-from sudo.utils import has_sudo_privileges
+from elevate.utils import has_elevated_privileges
 
 try:
     from django.utils.deprecation import MiddlewareMixin
@@ -17,40 +18,40 @@ except ImportError:
     MiddlewareMixin = object
 
 
-class SudoMiddleware(MiddlewareMixin):
+class ElevateMiddleware(MiddlewareMixin):
     """
-    Middleware that contributes ``request.is_sudo()`` and sets the required
-    cookie for sudo mode to work correctly.
+    Middleware that contributes ``request.is_elevated()`` and sets the required
+    cookie for Elevate mode to work correctly.
     """
-    def has_sudo_privileges(self, request):
+    def has_elevated_privileges(self, request):
         # Override me to alter behavior
-        return has_sudo_privileges(request)
+        return has_elevated_privileges(request)
 
     def process_request(self, request):
         assert hasattr(request, 'session'), (
-            "The Sudo middleware requires session middleware to be installed."
+            "The Elevate middleware requires session middleware to be installed."
             "Edit your MIDDLEWARE_CLASSES setting to insert "
             "'django.contrib.sessions.middleware.SessionMiddleware' before "
-            "'sudo.middleware.SudoMiddleware'."
+            "'elevate.middleware.ElevateMiddleware'."
         )
-        request.is_sudo = lambda: self.has_sudo_privileges(request)
+        request.is_elevated = lambda: self.has_elevated_privileges(request)
 
     def process_response(self, request, response):
-        is_sudo = getattr(request, '_sudo', None)
+        is_elevated = getattr(request, '_elevate', None)
 
-        if is_sudo is None:
+        if is_elevated is None:
             return response
 
-        # We have explicitly had sudo revoked, so clean up cookie
-        if is_sudo is False and COOKIE_NAME in request.COOKIES:
+        # We have explicitly had Elevate revoked, so clean up cookie
+        if is_elevated is False and COOKIE_NAME in request.COOKIES:
             response.delete_cookie(COOKIE_NAME)
             return response
 
-        # Sudo mode has been granted,
+        # Elevate mode has been granted,
         # and we have a token to send back to the user agent
-        if is_sudo is True and hasattr(request, '_sudo_token'):
-            token = request._sudo_token
-            max_age = request._sudo_max_age
+        if is_elevated is True and hasattr(request, '_elevate_token'):
+            token = request._elevate_token
+            max_age = request._elevate_max_age
             response.set_signed_cookie(
                 COOKIE_NAME, token,
                 salt=COOKIE_SALT,

@@ -11,4 +11,4 @@ class EmailUser(AbstractBaseUser):
         return self.email
 
     class Meta:
-        app_label = 'sudo_tests'
+        app_label = 'elevate_tests'

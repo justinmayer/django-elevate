@@ -1,27 +1,28 @@
 """
-sudo.decorators
-~~~~~~~~~~~~~~~
+elevate.decorators
+~~~~~~~~~~~~~~~~~~
 
-:copyright: (c) 2014 by Matt Robenolt.
+:copyright: (c) 2017-present by Justin Mayer.
+:copyright: (c) 2014-2016 by Matt Robenolt.
 :license: BSD, see LICENSE for more details.
 """
 from functools import wraps
 
-from sudo.views import redirect_to_sudo
+from elevate.views import redirect_to_elevate
 
 
-def sudo_required(func):
+def elevate_required(func):
     """
     Enforces a view to have elevated privileges.
     Should likely be paired with ``@login_required``.
 
-    >>> @sudo_required
+    >>> @elevate_required
     >>> def secure_page(request):
     >>>     ...
     """
     @wraps(func)
     def inner(request, *args, **kwargs):
-        if not request.is_sudo():
-            return redirect_to_sudo(request.get_full_path())
+        if not request.is_elevated():
+            return redirect_to_elevate(request.get_full_path())
         return func(request, *args, **kwargs)
     return inner

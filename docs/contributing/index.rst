@@ -8,7 +8,7 @@ You will first want to clone the source repository locally with ``git``:
 
 .. code-block:: console
 
-    $ git clone git@github.com:mattrobenolt/django-sudo.git
+    $ git clone git@github.com:mattrobenolt/django-elevate.git
 
 
 Setup Environment
@@ -43,7 +43,7 @@ for all supported platforms, we use `tox <https://pypi.python.org/pypi/tox>`_.
 Submitting Patches
 ~~~~~~~~~~~~~~~~~~
 
-Patches are accepted via `Pull Requests <https://github.com/mattrobenolt/django-sudo/pulls>`_ on
+Patches are accepted via `Pull Requests <https://github.com/justinmayer/django-elevate/pulls>`_ on
 GitHub.
 
 .. note::

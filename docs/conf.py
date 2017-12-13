@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# django-sudo documentation build configuration file, created by
+# django-elevate documentation build configuration file, created by
 # sphinx-quickstart on Sun Apr 13 18:05:56 2014.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -40,15 +40,15 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'django-sudo'
-copyright = u'%s, Matt Robenolt' % datetime.date.today().year
+project = u'django-elevate'
+copyright = u'%s, Justin Mayer' % datetime.date.today().year
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = __import__('pkg_resources').get_distribution('django_sudo').version
+version = __import__('pkg_resources').get_distribution('django_elevate').version
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -172,7 +172,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'django-sudodoc'
+htmlhelp_basename = 'django-elevatedoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -191,8 +191,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'django-sudo.tex', u'django-sudo Documentation',
-   u'Matt Robenolt', 'manual'),
+  ('index', 'django-elevate.tex', u'django-elevate Documentation',
+   u'Justin Mayer', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -221,8 +221,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'django-sudo', u'django-sudo Documentation',
-     [u'Matt Robenolt'], 1)
+    ('index', 'django-elevate', u'django-elevate Documentation',
+     [u'Justin Mayer'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -235,8 +235,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'django-sudo', u'django-sudo Documentation',
-   u'Matt Robenolt', 'django-sudo', 'One line description of project.',
+  ('index', 'django-elevate', u'django-elevate Documentation',
+   u'Justin Mayer', 'django-elevate', 'One line description of project.',
    'Miscellaneous'),
 ]
 

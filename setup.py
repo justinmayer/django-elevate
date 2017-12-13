@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 """
-django-sudo
-~~~~~~~~~~~
+django-elevate
+~~~~~~~~~~~~~~
 
-:copyright: (c) 2016 by Matt Robenolt.
+:copyright: (c) 2017-present by Justin Mayer.
+:copyright: (c) 2014-2016 by Matt Robenolt.
 :license: BSD, see LICENSE for more details.
 """
 from setuptools import setup, find_packages
@@ -38,11 +39,11 @@ class PyTest(TestCommand):
 
 
 setup(
-    name='django-sudo',
+    name='django-elevate',
     version='2.1.0',
-    author='Matt Robenolt',
-    author_email='matt@ydekproductions.com',
-    url='https://github.com/mattrobenolt/django-sudo',
+    author='Justin Mayer',
+    author_email='entroP@gmail.com',
+    url='https://github.com/justinmayer/django-elevate',
     description='Extra security for your sensitive pages',
     license='BSD',
     long_description=long_description,

@@ -4,20 +4,20 @@ Getting Started
 Installation
 ~~~~~~~~~~~~
 
-First, install the ``django-sudo`` library with `pip <https://pypi.python.org/pypi/pip>`_.
+First, install the ``django-elevate`` library with `pip <https://pypi.python.org/pypi/pip>`_.
 
 .. code-block:: console
 
-    $ pip install django-sudo
+    $ pip install django-elevate
 
-Next, we need to add the ``sudo`` application to our ``INSTALLED_APPS``. Installing the application
+Next, we need to add the ``elevate`` application to our ``INSTALLED_APPS``. Installing the application
 will automatically register the ``user_logged_in`` and ``user_logged_out`` signals that are needed.
 
 .. code-block:: python
 
     INSTALLED_APPS = (
         # ...
-        'sudo',
+        'elevate',
     )
 
 Now we need to install the required middleware into ``MIDDLEWARE_CLASSES``:
@@ -26,12 +26,12 @@ Now we need to install the required middleware into ``MIDDLEWARE_CLASSES``:
 
     MIDDLEWARE_CLASSES = (
         # ...
-        'sudo.middleware.SudoMiddleware',
+        'elevate.middleware.ElevateMiddleware',
     )
 
 .. note::
 
-    ``sudo.middleware.SudoMiddleware`` **must** be installed after
+    ``elevate.middleware.ElevateMiddleware`` **must** be installed after
     ``django.contrib.session.middleware.SessionMiddleware``.
 
 Proceed to the :doc:`/config/index` documentation.
