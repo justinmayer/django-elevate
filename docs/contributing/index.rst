@@ -1,21 +1,21 @@
 Contributing
 ============
 
-Getting the source
+Getting the Source
 ~~~~~~~~~~~~~~~~~~
 
 You will first want to clone the source repository locally with ``git``:
 
 .. code-block:: console
 
-    $ git clone git@github.com:mattrobenolt/django-elevate.git
+    $ git clone git@github.com:justinmayer/django-elevate.git
 
 
-Setup Environment
-~~~~~~~~~~~~~~~~~
+Setting Up the Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 I would recommend using `virtualenv <https://pypi.python.org/pypi/virtualenv>`_ to set up a dev
-environment. After creating an environment, install all dep dependencies with:
+environment. After creating an environment, install all development dependencies with:
 
 .. code-block:: console
 

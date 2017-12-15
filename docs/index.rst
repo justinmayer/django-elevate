@@ -1,17 +1,18 @@
-Welcome to ``django-elevate``
-=============================
+Welcome to Elevate
+==================
 
-``django-elevate`` is an implementation of GitHub's `Sudo Mode
-<https://github.com/blog/1513-introducing-github-sudo-mode>`_ for `Django
-<https://www.djangoproject.com/>`_.
+Elevate, also known as ``django-elevate``, is an implementation of GitHub's
+`Sudo Mode`_ for `Django`_.
 
 What is this for?
 ~~~~~~~~~~~~~~~~~
-``django-elevate`` provides an extra layer of security for after a user is already logged in. Views can
-be decorated with :func:`@elevate_required <django_elevate.decorators.elevate_required>`, and then a user
-must re-enter their password to view that page. After verifying their password, that user has
-elevated permissions for the duration of ``ELEVATE_COOKIE_AGE``. This duration is independent of the
-normal session duration allowing short elevated permission durations, but retain long user sessions.
+Elevate provides an extra layer of security beyond initial user authentication.
+Views can be decorated with ``@elevate_required``, and then users must
+re-authenticate to access that resource. This might be useful for deleting objects,
+canceling subscriptions, and other sensitive operations. After re-authentication,
+the user has elevated permissions for the duration of ``ELEVATE_COOKIE_AGE``.
+This duration is independent of the normal session duration, allowing for short
+elevated permission durations while still retaining long user sessions.
 
 Installation
 ~~~~~~~~~~~~
@@ -22,8 +23,8 @@ Installation
 
 Compatibility
 ~~~~~~~~~~~~~
-* Django 1.4-1.9
-* Python 2.6-3.5
+* Django 1.7 - 1.11
+* Python 2.7 - 3.6
 * pypy
 
 Contents
@@ -39,3 +40,7 @@ Contents
    how/index
    security/index
    changelog/index
+
+
+.. _Sudo Mode: https://github.com/blog/1513-introducing-github-sudo-mode
+.. _Django: https://www.djangoproject.com/
