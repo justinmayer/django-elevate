@@ -20,11 +20,11 @@ will automatically register the ``user_logged_in`` and ``user_logged_out`` signa
         'elevate',
     )
 
-Now we need to install the required middleware into ``MIDDLEWARE_CLASSES``:
+Now we need to add Elevate’s middleware to the ``MIDDLEWARE`` setting:
 
 .. code-block:: python
 
-    MIDDLEWARE_CLASSES = (
+    MIDDLEWARE = (
         # ...
         'elevate.middleware.ElevateMiddleware',
     )

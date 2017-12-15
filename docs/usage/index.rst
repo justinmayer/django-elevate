@@ -51,7 +51,7 @@ the :class:`~elevate.middleware.ElevateMiddleware`. This is an shortcut for call
 
 .. class:: elevate.middleware.ElevateMiddleware
 
-    By default, you just need to add this into your ``MIDDLEWARE_CLASSES`` list.
+    By default, you just need to add this to your ``MIDDLEWARE`` list.
 
     .. method:: has_elevated_privileges(self, request)
 
