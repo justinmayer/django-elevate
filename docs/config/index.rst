@@ -57,8 +57,10 @@ the following:
 
 .. code-block:: python
 
+    from elevate.views import elevate as elevate_view
+
     (r'^elevate/$',  # Whatever path you want
-        'elevate.views.elevate',  # Required
+        elevate_view,  # Required
         {'template_name': 'elevate/elevate.html'}  # Optionally change the template to be used
     )
 
