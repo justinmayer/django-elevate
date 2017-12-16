@@ -4,8 +4,8 @@ django-elevate
 .. image:: https://travis-ci.org/justinmayer/django-elevate.svg?branch=master
    :target: https://travis-ci.org/justinmayer/django-elevate
 
-.. image:: https://coveralls.io/repos/justinmayer/django-elevate/badge.png?branch=master
-   :target: https://coveralls.io/r/justinmayer/django-elevate?branch=master
+.. image:: https://coveralls.io/repos/github/justinmayer/django-elevate/badge.svg?branch=master
+   :target: https://coveralls.io/github/justinmayer/django-elevate?branch=master
 
 ..
 
