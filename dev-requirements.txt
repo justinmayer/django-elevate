@@ -1,8 +1,5 @@
 -e .
-flake8<3.0
 invoke>=0.11.1,<0.12
-sphinx
-sphinx_rtd_theme
 tox
 twine
 wheel
