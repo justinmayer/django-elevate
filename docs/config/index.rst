@@ -72,7 +72,7 @@ the package will look for ``elevate/elevate.html`` but can easily be overwritten
 ``template_name`` when defining the url definition as seen above.
 
 elevate/elevate.html
---------------
+--------------------
 
 This template gets rendered with the the following context:
 
