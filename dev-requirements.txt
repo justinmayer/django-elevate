@@ -1,9 +1,6 @@
 -e .
 flake8<3.0
 invoke>=0.11.1,<0.12
-pytest
-pytest-cov
-pytest-django
 sphinx
 sphinx_rtd_theme
 tox

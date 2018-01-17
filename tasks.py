@@ -13,8 +13,8 @@ def lint(verbose=False):
 
 @task(lint)
 def test(verbose=False):
-    "Run tests using py.test"
-    run('py.test --cov elevate --cov-report term-missing {0}'.format('-v' if verbose else ''))
+    "Run tests using tox"
+    run('tox --skip-missing-interpreters{0}'.format(' -- -v' if verbose else ''))
 
 
 @task
