@@ -8,7 +8,7 @@ run = partial(_run, echo=True, pty=True)
 @task
 def lint(verbose=False):
     "Run flake8 linter"
-    run('flake8 elevate tests *.py {0}'.format('-v' if verbose else ''))
+    run('tox -e flake8{0}'.format(' -- -v' if verbose else ''))
 
 
 @task(lint)
