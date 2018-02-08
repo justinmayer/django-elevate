@@ -1,5 +1,10 @@
 -e .
+django
+flake8
 invoke>=0.11.1,<0.12
+pytest
+pytest-cov
+pytest-django
 tox
 twine
 wheel
