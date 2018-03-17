@@ -21,11 +21,12 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic import View
 from django.utils.decorators import method_decorator
+from django.utils.http import is_safe_url
 from django.utils.module_loading import import_string
 
 from elevate.settings import (REDIRECT_FIELD_NAME, REDIRECT_URL,
                               REDIRECT_TO_FIELD_NAME, URL)
-from elevate.utils import grant_elevated_privileges, is_safe_url
+from elevate.utils import grant_elevated_privileges
 from elevate.forms import ElevateForm
 
 
