@@ -23,7 +23,7 @@ def grant_elevated_privileges(request, max_age=COOKIE_AGE):
     if user is None:
         return
 
-    if not user.is_authenticated():
+    if not is_authenticated(user):
         raise ValueError('User needs to be logged in to be elevated')
 
     # Token doesn't need to be unique,
@@ -52,7 +52,7 @@ def has_elevated_privileges(request):
     if getattr(request, '_elevate', None) is None:
         try:
             request._elevate = (
-                request.user.is_authenticated() and
+                is_authenticated(request.user) and
                 constant_time_compare(
                     request.get_signed_cookie(COOKIE_NAME, salt=COOKIE_SALT, max_age=COOKIE_AGE),
                     request.session[COOKIE_NAME]
@@ -61,3 +61,18 @@ def has_elevated_privileges(request):
         except (KeyError, BadSignature):
             request._elevate = False
     return request._elevate
+
+
+def is_authenticated(user):
+    """
+    Check if a user is authenticated
+
+    In Django 1.10 User.is_authenticated was changed to a property and
+    backwards compatible support for is_authenticated being callable was
+    finally removed in Django 2.0. This function can be removed once support
+    Django versions earlier than 1.10 are dropped.
+    """
+    if callable(user.is_authenticated):
+        return user.is_authenticated()
+    else:
+        return user.is_authenticated

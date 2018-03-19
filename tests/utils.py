@@ -1,10 +1,12 @@
 from elevate.settings import COOKIE_NAME, COOKIE_AGE
 from elevate.utils import (
     grant_elevated_privileges,
-    revoke_elevated_privileges,
     has_elevated_privileges,
+    is_authenticated,
+    revoke_elevated_privileges,
 )
 
+from django.contrib.auth.models import User, AnonymousUser
 from django.core.signing import BadSignature
 
 from .base import BaseTestCase
@@ -102,3 +104,12 @@ class HasElevatedPrivilegesTestCase(BaseTestCase):
     def test_missing_keys(self):
         self.login()
         self.assertFalse(has_elevated_privileges(self.request))
+
+
+class IsAuthenticatedTestCase(BaseTestCase):
+    def test_with_user_objects(self):
+        user = User()
+        self.assertTrue(is_authenticated(user))
+
+        user = AnonymousUser()
+        self.assertFalse(is_authenticated(user))
