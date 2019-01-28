@@ -49,7 +49,7 @@ class ElevateView(View):
         redirect_to = request.session.pop(REDIRECT_TO_FIELD_NAME,
                                           redirect_to)
         # Double check we're not redirecting to other sites
-        if not is_safe_url(url=redirect_to, host=request.get_host()):
+        if not is_safe_url(url=redirect_to, allowed_hosts=request.get_host()):
             redirect_to = resolve_url(REDIRECT_URL)
         return HttpResponseRedirect(redirect_to)
 
@@ -61,7 +61,7 @@ class ElevateView(View):
         redirect_to = request.GET.get(REDIRECT_FIELD_NAME, REDIRECT_URL)
 
         # Make sure we're not redirecting to other sites
-        if not is_safe_url(url=redirect_to, host=request.get_host()):
+        if not is_safe_url(url=redirect_to, allowed_hosts=request.get_host()):
             redirect_to = resolve_url(REDIRECT_URL)
 
         if request.is_elevated():
