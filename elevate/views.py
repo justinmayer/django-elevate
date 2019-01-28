@@ -12,6 +12,7 @@ except ImportError:  # pragma: no cover
     # Python 2 fallback
     from urlparse import urlparse, urlunparse  # noqa
 
+import django
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, QueryDict
 from django.shortcuts import resolve_url
