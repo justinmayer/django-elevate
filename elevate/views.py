@@ -48,8 +48,19 @@ class ElevateView(View):
         # Restore the redirect destination from the GET request
         redirect_to = request.session.pop(REDIRECT_TO_FIELD_NAME,
                                           redirect_to)
+    
+        kwargs = {
+            'url': redirect_to,
+            'host': request.get_host()
+        }
+                
+        # NOTE(gabn88): Django 2.1 drops support for the `host` kwarg.
+        if django.VERSION > (2, 0):
+            del kwargs['host']
+            kwargs.update({'allowed_hosts':request.get_host()})
+        
         # Double check we're not redirecting to other sites
-        if not is_safe_url(url=redirect_to, allowed_hosts=request.get_host()):
+        if not is_safe_url(**kwargs):
             redirect_to = resolve_url(REDIRECT_URL)
         return HttpResponseRedirect(redirect_to)
 
@@ -60,8 +71,18 @@ class ElevateView(View):
     def dispatch(self, request):
         redirect_to = request.GET.get(REDIRECT_FIELD_NAME, REDIRECT_URL)
 
+        kwargs = {
+            'url': redirect_to,
+            'host': request.get_host()
+        }
+        
+        # NOTE(gabn88): Django 2.1 drops support for the `host` kwarg.
+        if django.VERSION > (2, 0):
+            del kwargs['host']
+            kwargs.update({'allowed_hosts':request.get_host()})
+        
         # Make sure we're not redirecting to other sites
-        if not is_safe_url(url=redirect_to, allowed_hosts=request.get_host()):
+        if not is_safe_url(**kwargs):
             redirect_to = resolve_url(REDIRECT_URL)
 
         if request.is_elevated():
