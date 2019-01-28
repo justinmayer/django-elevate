@@ -58,7 +58,7 @@ class ElevateView(View):
         # NOTE(gabn88): Django 2.1 drops support for the `host` kwarg.
         if django.VERSION > (2, 0):
             del kwargs['host']
-            kwargs.update({'allowed_hosts':request.get_host()})
+            kwargs.update({'allowed_hosts': request.get_host()})
         
         # Double check we're not redirecting to other sites
         if not is_safe_url(**kwargs):
@@ -80,7 +80,7 @@ class ElevateView(View):
         # NOTE(gabn88): Django 2.1 drops support for the `host` kwarg.
         if django.VERSION > (2, 0):
             del kwargs['host']
-            kwargs.update({'allowed_hosts':request.get_host()})
+            kwargs.update({'allowed_hosts': request.get_host()})
         
         # Make sure we're not redirecting to other sites
         if not is_safe_url(**kwargs):
