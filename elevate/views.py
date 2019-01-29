@@ -27,7 +27,7 @@ from django.utils.module_loading import import_string
 
 from elevate.settings import (REDIRECT_FIELD_NAME, REDIRECT_URL,
                               REDIRECT_TO_FIELD_NAME, URL)
-from elevate.utils import grant_elevated_privileges
+from elevate.utils import grant_elevated_privileges, replace_dict_key_name
 from elevate.forms import ElevateForm
 
 
@@ -57,8 +57,7 @@ class ElevateView(View):
 
         # NOTE(gabn88): Django 2.1 drops support for the `host` kwarg.
         if django.VERSION > (2, 0):
-            del kwargs['host']
-            kwargs.update({'allowed_hosts': request.get_host()})
+            replace_dict_key_name(kwargs, 'host', 'allowed_hosts')
 
         # Double check we're not redirecting to other sites
         if not is_safe_url(**kwargs):
@@ -79,8 +78,7 @@ class ElevateView(View):
 
         # NOTE(gabn88): Django 2.1 drops support for the `host` kwarg.
         if django.VERSION > (2, 0):
-            del kwargs['host']
-            kwargs.update({'allowed_hosts': request.get_host()})
+            replace_dict_key_name(kwargs, 'host', 'allowed_hosts')
 
         # Make sure we're not redirecting to other sites
         if not is_safe_url(**kwargs):
