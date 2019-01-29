@@ -11,6 +11,13 @@ from django.utils.crypto import get_random_string, constant_time_compare
 
 from elevate.settings import COOKIE_NAME, COOKIE_AGE, COOKIE_SALT
 
+def replace_dict_key_name(_dict, old_key_name, new_key_name):
+    value = _dict[old_key_name]
+    del _dict[old_key_name]
+    _dict[new_key_name] = value
+    return _dict
+    
+
 
 def grant_elevated_privileges(request, max_age=COOKIE_AGE):
     """
