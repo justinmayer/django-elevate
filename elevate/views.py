@@ -27,7 +27,7 @@ from django.utils.module_loading import import_string
 from elevate.settings import (REDIRECT_FIELD_NAME, REDIRECT_URL,
                               REDIRECT_TO_FIELD_NAME, URL)
 if django.VERSION >= (1,11):
-    from django.http.utils import is_safe_url
+    from django.utils.http import is_safe_url
 else:
     from elevate.compat import is_safe_url
 from elevate.utils import grant_elevated_privileges
