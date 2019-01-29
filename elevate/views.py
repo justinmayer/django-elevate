@@ -22,12 +22,15 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic import View
 from django.utils.decorators import method_decorator
-from django.utils.http import is_safe_url
 from django.utils.module_loading import import_string
 
 from elevate.settings import (REDIRECT_FIELD_NAME, REDIRECT_URL,
                               REDIRECT_TO_FIELD_NAME, URL)
-from elevate.utils import grant_elevated_privileges, replace_dict_key_name
+if django.VERSION >= (1,11):
+    from django.http.utils import is_safe_url
+else:
+    from elvate.compat import is_safe_url
+from elevate.utils import grant_elevated_privileges
 from elevate.forms import ElevateForm
 
 
@@ -50,17 +53,8 @@ class ElevateView(View):
         redirect_to = request.session.pop(REDIRECT_TO_FIELD_NAME,
                                           redirect_to)
 
-        kwargs = {
-            'url': redirect_to,
-            'host': request.get_host()
-        }
-
-        # NOTE(gabn88): Django 2.1 drops support for the `host` kwarg.
-        if django.VERSION > (2, 0):
-            replace_dict_key_name(kwargs, 'host', 'allowed_hosts')
-
         # Double check we're not redirecting to other sites
-        if not is_safe_url(**kwargs):
+        if not is_safe_url(url=redirect_to, allowed_hosts=request.get_host()):
             redirect_to = resolve_url(REDIRECT_URL)
         return HttpResponseRedirect(redirect_to)
 
@@ -71,17 +65,8 @@ class ElevateView(View):
     def dispatch(self, request):
         redirect_to = request.GET.get(REDIRECT_FIELD_NAME, REDIRECT_URL)
 
-        kwargs = {
-            'url': redirect_to,
-            'host': request.get_host()
-        }
-
-        # NOTE(gabn88): Django 2.1 drops support for the `host` kwarg.
-        if django.VERSION > (2, 0):
-            replace_dict_key_name(kwargs, 'host', 'allowed_hosts')
-
         # Make sure we're not redirecting to other sites
-        if not is_safe_url(**kwargs):
+        if not is_safe_url(url=redirect_to, allowed_hosts=request.get_host()):
             redirect_to = resolve_url(REDIRECT_URL)
 
         if request.is_elevated():
