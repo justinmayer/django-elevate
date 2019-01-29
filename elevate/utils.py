@@ -11,6 +11,7 @@ from django.utils.crypto import get_random_string, constant_time_compare
 
 from elevate.settings import COOKIE_NAME, COOKIE_AGE, COOKIE_SALT
 
+
 def grant_elevated_privileges(request, max_age=COOKIE_AGE):
     """
     Assigns a random token to the user's session
