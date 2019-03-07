@@ -17,7 +17,7 @@ class GrantElevatedPrivilegesTestCase(BaseTestCase):
         token = request.session[COOKIE_NAME]
 
         self.assertRegexpMatches(
-            token, '^\w{12}$'
+            token, r'^\w{12}$'
         )
         self.assertTrue(request._elevate)
         self.assertEqual(request._elevate_token, token)
