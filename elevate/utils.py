@@ -7,7 +7,9 @@ elevate.utils
 :license: BSD, see LICENSE for more details.
 """
 from django.core.signing import BadSignature
+from django.utils import http
 from django.utils.crypto import get_random_string, constant_time_compare
+import django
 
 from elevate.settings import COOKIE_NAME, COOKIE_AGE, COOKIE_SALT
 
@@ -76,3 +78,13 @@ def is_authenticated(user):
         return user.is_authenticated()
     else:
         return user.is_authenticated
+
+
+def is_safe_url(url, allowed_hosts, require_https=False):
+    """
+    Wrapper around is_safe_url for Django versions < 1.11
+    """
+    if django.VERSION >= (1, 11):
+        return http.is_safe_url(url, allowed_hosts=allowed_hosts, require_https=require_https)
+    else:
+        return http.is_safe_url(url, allowed_hosts[0])
