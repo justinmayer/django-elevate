@@ -40,7 +40,7 @@ class PyTest(TestCommand):
 
 setup(
     name='django-elevate',
-    version='1.0.0',
+    version='1.0.1',
     author='Justin Mayer',
     author_email='entroP@gmail.com',
     url='https://github.com/justinmayer/django-elevate',
