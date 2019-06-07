@@ -31,7 +31,7 @@ Tests can simply be run using:
 
 .. code-block:: console
 
-    $ py.test
+    $ pytest
 
 This will discover and run the test suite using your default Python interpreter. To run tests
 for all supported platforms, we use `tox <https://pypi.python.org/pypi/tox>`_.
