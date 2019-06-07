@@ -1,6 +1,9 @@
 django-elevate
 ==============
 
+.. image:: https://img.shields.io/pypi/v/django-elevate.svg
+    :target: https://pypi.python.org/pypi/django-elevate/
+
 .. image:: https://travis-ci.org/justinmayer/django-elevate.svg?branch=master
    :target: https://travis-ci.org/justinmayer/django-elevate
 
