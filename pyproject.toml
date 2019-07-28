@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "django-elevate"
+version = "1.0.1"
+description = "Extra security for your sensitive pages"
+authors = ["Justin Mayer <entroP@gmail.com>"]
+readme = "README.rst"
+license = "BSD"
+keywords = ["django", "security", "authentication", "permissions"]
+
+[build-system]
+requires = ["setuptools >= 40.6.0", "wheel"]
