@@ -43,8 +43,14 @@ for all supported platforms, we use `tox <https://pypi.python.org/pypi/tox>`_.
 Submitting Patches
 ~~~~~~~~~~~~~~~~~~
 
-Patches are accepted via `Pull Requests <https://github.com/justinmayer/django-elevate/pulls>`_ on
-GitHub.
+Patches are accepted via `pull requests`_ on GitHub. Please be sure to add a
+``RELEASE.md`` file in the root of the project that contains the release type
+(major, minor, patch) and a summary of the changes that will be used as the
+release changelog entry. For example::
+
+    Release type: patch
+
+    Remove vendored copy of is_safe_url
 
 .. note::
 
@@ -55,3 +61,5 @@ Tests
 -----
 
 All new code and changed code must come with **100%** test coverage to be considered for acceptance.
+
+.. _`pull requests`: https://github.com/justinmayer/django-elevate/pulls

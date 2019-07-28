@@ -10,6 +10,8 @@ django-elevate
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 
+version = "1.0.1"
+
 install_requires = []
 
 tests_require = [
@@ -40,7 +42,7 @@ class PyTest(TestCommand):
 
 setup(
     name='django-elevate',
-    version='1.0.2.dev0',
+    version=version,
     author='Justin Mayer',
     author_email='entroP@gmail.com',
     url='https://github.com/justinmayer/django-elevate',
