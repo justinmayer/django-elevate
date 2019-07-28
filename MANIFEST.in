@@ -1,1 +1,1 @@
-include setup.py README.rst MANIFEST.in LICENSE
+include pyproject.toml setup.py README.rst MANIFEST.in LICENSE
