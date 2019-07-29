@@ -7,5 +7,12 @@ readme = "README.rst"
 license = "BSD"
 keywords = ["django", "security", "authentication", "permissions"]
 
+[tool.autopub]
+project-name = "Elevate"
+git-username = "botpub"
+git-email = "botpub@autopub.rocks"
+changelog-file = "docs/changelog/index.rst"
+version-strings = ["setup.py"]
+
 [build-system]
 requires = ["setuptools >= 40.6.0", "wheel"]
