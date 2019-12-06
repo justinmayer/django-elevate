@@ -1,7 +1,7 @@
-from .base import BaseTestCase
-
 from django.http import HttpResponse
+
 from elevate.decorators import elevate_required
+from .base import BaseTestCase
 
 
 @elevate_required

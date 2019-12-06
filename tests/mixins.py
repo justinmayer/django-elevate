@@ -1,7 +1,8 @@
-from .base import BaseTestCase
 from django.http import HttpResponse
 from django.views import generic
+
 from elevate.mixins import ElevateMixin
+from .base import BaseTestCase
 
 
 class FooView(ElevateMixin, generic.View):

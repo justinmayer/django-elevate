@@ -8,7 +8,7 @@ elevate.forms
 """
 from django import forms
 from django.contrib import auth
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 
 class ElevateForm(forms.Form):
@@ -20,7 +20,7 @@ class ElevateForm(forms.Form):
 
     def __init__(self, user, *args, **kwargs):
         self.user = user
-        super(ElevateForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def clean_password(self):
         username = self.user.get_username()

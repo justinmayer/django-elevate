@@ -11,3 +11,5 @@ try:
         .get_distribution('elevate').version
 except Exception:  # pragma: no cover
     VERSION = 'unknown'
+
+default_app_config = 'elevate.apps.ElevateConfig'
