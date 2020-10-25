@@ -6,16 +6,13 @@ elevate.middleware
 :copyright: (c) 2014-2016 by Matt Robenolt.
 :license: BSD, see LICENSE for more details.
 """
+from django.utils.deprecation import MiddlewareMixin
+
 from elevate.settings import (
     COOKIE_DOMAIN, COOKIE_HTTPONLY, COOKIE_NAME,
     COOKIE_PATH, COOKIE_SECURE, COOKIE_SALT,
 )
 from elevate.utils import has_elevated_privileges
-
-try:
-    from django.utils.deprecation import MiddlewareMixin
-except ImportError:
-    MiddlewareMixin = object
 
 
 class ElevateMiddleware(MiddlewareMixin):

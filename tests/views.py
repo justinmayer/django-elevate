@@ -1,5 +1,3 @@
-from .base import BaseTestCase
-
 from django.template.response import TemplateResponse
 
 from elevate.settings import REDIRECT_FIELD_NAME, REDIRECT_URL, REDIRECT_TO_FIELD_NAME
@@ -8,6 +6,8 @@ from elevate.views import (
     redirect_to_elevate,
 )
 from elevate.forms import ElevateForm
+
+from .base import BaseTestCase
 
 
 class ElevateViewTestCase(BaseTestCase):

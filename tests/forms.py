@@ -1,13 +1,13 @@
+from django.forms import ValidationError
+
+from elevate.forms import ElevateForm
 from .base import BaseTestCase
 from .models import EmailUser
-
-from django.forms import ValidationError
-from elevate.forms import ElevateForm
 
 
 class ElevateFormTestCase(BaseTestCase):
     def setUp(self):
-        super(ElevateFormTestCase, self).setUp()
+        super().setUp()
         self.login()
 
     def test_integration_empty(self):

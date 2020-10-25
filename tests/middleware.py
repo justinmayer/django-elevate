@@ -1,5 +1,3 @@
-from .base import BaseTestCase
-
 from django.http import HttpResponse
 
 from elevate.settings import COOKIE_NAME
@@ -8,6 +6,7 @@ from elevate.utils import (
     grant_elevated_privileges,
     revoke_elevated_privileges,
 )
+from .base import BaseTestCase
 
 
 class ElevateMiddlewareTestCase(BaseTestCase):
