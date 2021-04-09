@@ -15,8 +15,11 @@ django-elevate
     | Elevate mode offers an extra layer of security for your most sensitive pages.
     | This is an implementation of GitHub's `Sudo Mode`_ for `Django`_.
 
+.. inclusion-marker-do-not-remove-start
+
 What is this for?
 ~~~~~~~~~~~~~~~~~
+
 Elevate provides an extra layer of security beyond initial user authentication.
 Views can be decorated with ``@elevate_required``, and then users must
 re-authenticate to access that resource. This might be useful for deleting objects,
@@ -34,12 +37,16 @@ Installation
 
 Compatibility
 ~~~~~~~~~~~~~
-* Django 2.2 - 3.1
+
+* Django 2.2, 3.1, and 3.2
 * Python 3.5 - 3.9
 * pypy3
 
+.. inclusion-marker-do-not-remove-end
+
 Resources
 ~~~~~~~~~
+
 * `Documentation <https://django-elevate.readthedocs.io/>`_
 * `Security <https://django-elevate.readthedocs.io/en/latest/security/index.html>`_
 * `Changelog <https://django-elevate.readthedocs.io/en/latest/changelog/index.html>`_
