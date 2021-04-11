@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.0.1 - 2021-04-11
+------------------
+
+Add Django 3.2 support and remove Django 3.0 support
+
 2.0.0 - 2020-10-25
 ------------------
 
