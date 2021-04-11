@@ -39,4 +39,5 @@ def pytest_configure(config):
         MIDDLEWARE_CLASSES=MIDDLEWARE_CLASSES,
         PASSWORD_HASHERS=['django.contrib.auth.hashers.MD5PasswordHasher'],
         ROOT_URLCONF='tests.urls',
+        SECRET_KEY='test',
     )
