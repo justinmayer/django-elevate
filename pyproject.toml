@@ -14,6 +14,7 @@ git-email = "botpub@autopub.rocks"
 changelog-file = "docs/changelog/index.rst"
 version-strings = ["setup.py"]
 tag-prefix = "v"
+append-github-contributor = true
 
 [build-system]
 requires = ["setuptools >= 40.6.0", "wheel"]
