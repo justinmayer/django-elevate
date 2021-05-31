@@ -11,43 +11,43 @@ class ElevateFormTestCase(BaseTestCase):
         self.login()
 
     def test_integration_empty(self):
-        self.assertFalse(ElevateForm(self.user).is_valid())
+        self.assertFalse(ElevateForm(self.request, self.user).is_valid())
 
     def test_integration_invalid_password(self):
         self.assertFalse(
-            ElevateForm(self.user, {'password': 'lol'}).is_valid()
+            ElevateForm(self.request, self.user, {'password': 'lol'}).is_valid()
         )
 
     def test_integration_valid_password(self):
         self.assertTrue(
-            ElevateForm(self.user, {'password': 'foo'}).is_valid()
+            ElevateForm(self.request, self.user, {'password': 'foo'}).is_valid()
         )
 
     def test_integration_secondary_auth_valid_password(self):
         self.assertTrue(
-            ElevateForm(self.user, {'password': 'stub'}).is_valid()
+            ElevateForm(self.request, self.user, {'password': 'stub'}).is_valid()
         )
 
     def test_clean_password_invalid_password(self):
         with self.assertRaises(ValidationError):
-            ElevateForm(self.user, {'password': 'lol'}).clean_password()
+            ElevateForm(self.request, self.user, {'password': 'lol'}).clean_password()
 
     def test_clean_password_valid_password(self):
         password = 'foo'
         self.assertEqual(
-            ElevateForm(self.user, {'password': password}).clean_password(),
+            ElevateForm(self.request, self.user, {'password': password}).clean_password(),
             password
         )
 
     def test_clean_password_secondary_auth_valid_password(self):
         password = 'stub'
         self.assertEqual(
-            ElevateForm(self.user, {'password': password}).clean_password(),
+            ElevateForm(self.request, self.user, {'password': password}).clean_password(),
             password
         )
 
     def test_integration_custom_user(self):
         self.login(EmailUser)
         self.assertTrue(
-            ElevateForm(self.user, {'password': 'foo'}).is_valid()
+            ElevateForm(self.request, self.user, {'password': 'foo'}).is_valid()
         )

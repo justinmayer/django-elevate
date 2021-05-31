@@ -26,6 +26,7 @@ class ElevateViewTestCase(BaseTestCase):
         form = response.context_data['form']
         self.assertIsInstance(form, ElevateForm)
         self.assertEqual(form.user, self.user)
+        self.assertEqual(form.request, self.request)
 
     def test_returns_template_response_with_next(self):
         self.login()

@@ -69,7 +69,7 @@ class ElevateView(View):
             request.session[REDIRECT_TO_FIELD_NAME] = redirect_to
 
         context = {
-            'form': self.form_class(request.user, request.POST or None),
+            'form': self.form_class(request, request.user, request.POST or None),
             'request': request,
             REDIRECT_FIELD_NAME: redirect_to,
         }
