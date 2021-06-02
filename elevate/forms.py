@@ -18,12 +18,15 @@ class ElevateForm(forms.Form):
         label=_('Password'), widget=forms.PasswordInput(attrs={'autofocus': True})
     )
 
-    def __init__(self, user, *args, **kwargs):
+    def __init__(self, request, user, *args, **kwargs):
+        self.request = request
         self.user = user
         super().__init__(*args, **kwargs)
 
     def clean_password(self):
         username = self.user.get_username()
-        if auth.authenticate(username=username, password=self.data['password']):
+        if auth.authenticate(
+            request=self.request, username=username, password=self.data["password"]
+        ):
             return self.data['password']
         raise forms.ValidationError(_('Incorrect password'))
