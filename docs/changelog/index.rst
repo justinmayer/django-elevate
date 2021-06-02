@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.0.2 - 2021-06-02
+------------------
+
+Added `request` to the `authenticate()` call to prevent errors from authenication backends that require it.
+
 2.0.1 - 2021-04-11
 ------------------
 
