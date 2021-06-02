@@ -43,7 +43,7 @@ deploy:
   script: autopub deploy
   skip_cleanup: true
   on:
-    branch: master
+    branch: main
     python: "3.7"
 
 env:

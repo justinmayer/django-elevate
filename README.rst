@@ -4,11 +4,11 @@ django-elevate
 .. image:: https://img.shields.io/pypi/v/django-elevate.svg
     :target: https://pypi.python.org/pypi/django-elevate/
 
-.. image:: https://travis-ci.org/justinmayer/django-elevate.svg?branch=master
+.. image:: https://travis-ci.org/justinmayer/django-elevate.svg?branch=main
    :target: https://travis-ci.org/justinmayer/django-elevate
 
-.. image:: https://coveralls.io/repos/github/justinmayer/django-elevate/badge.svg?branch=master
-   :target: https://coveralls.io/github/justinmayer/django-elevate?branch=master
+.. image:: https://coveralls.io/repos/github/justinmayer/django-elevate/badge.svg?branch=main
+   :target: https://coveralls.io/github/justinmayer/django-elevate?branch=main
 
 ..
 
