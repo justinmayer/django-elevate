@@ -1,14 +1,23 @@
 django-elevate
 ==============
 
-.. image:: https://img.shields.io/pypi/v/django-elevate.svg
+|pypi| |build-status| |readthedocs| |coverage|
+
+.. |pypi| image:: https://img.shields.io/pypi/v/django-elevate.svg
     :target: https://pypi.python.org/pypi/django-elevate/
+    :alt: PyPI Version
 
-.. image:: https://travis-ci.org/justinmayer/django-elevate.svg?branch=main
-   :target: https://travis-ci.org/justinmayer/django-elevate
+.. |readthedocs| image:: https://readthedocs.org/projects/django-elevate/badge/?version=latest
+    :target: https://django-elevate.readthedocs.io/en/latest/
+    :alt: Documentation Status
 
-.. image:: https://coveralls.io/repos/github/justinmayer/django-elevate/badge.svg?branch=main
-   :target: https://coveralls.io/github/justinmayer/django-elevate?branch=main
+.. |build-status| image:: https://img.shields.io/github/workflow/status/justinmayer/django-elevate/build
+    :target: https://github.com/justinmayer/django-elevate/actions
+    :alt: Build Status
+
+.. |coverage| image:: https://img.shields.io/codecov/c/github/justinmayer/django-elevate/main?flag=coverage&token=LMQUrdXJXk
+    :target: https://codecov.io/gh/justinmayer/django-elevate
+    :alt: Code Coverage
 
 ..
 
