@@ -15,7 +15,7 @@ django-elevate
     :target: https://github.com/justinmayer/django-elevate/actions
     :alt: Build Status
 
-.. |coverage| image:: https://img.shields.io/codecov/c/github/justinmayer/django-elevate/main?flag=coverage&token=LMQUrdXJXk
+.. |coverage| image:: https://img.shields.io/codecov/c/github/justinmayer/django-elevate/main?token=LMQUrdXJXk
     :target: https://codecov.io/gh/justinmayer/django-elevate
     :alt: Code Coverage
 
