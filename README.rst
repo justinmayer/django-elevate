@@ -48,7 +48,7 @@ Compatibility
 ~~~~~~~~~~~~~
 
 * Django 2.2, 3.1, and 3.2
-* Python 3.5 - 3.9
+* Python 3.5 - 3.10
 * pypy3
 
 .. inclusion-marker-do-not-remove-end
