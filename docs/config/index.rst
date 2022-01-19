@@ -49,6 +49,9 @@ By default, all of the settings are optional and define sane and secure defaults
     The name of the session attribute used to preserve the redirect destination
     between the original page request and successful elevated login. *Default: elevate_redirect_to*
 
+``ELEVATE_TOKEN_LENGTH``
+    Length of the random string that is stored in the Elevate cookie. *Default: 12*
+
 Set up URLs
 ~~~~~~~~~~~
 

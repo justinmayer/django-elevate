@@ -45,3 +45,6 @@ REDIRECT_TO_FIELD_NAME = getattr(settings, 'ELEVATE_REDIRECT_TO_FIELD_NAME', 'el
 
 # The url for the Elevate page itself. May be a url or a view name
 URL = getattr(settings, 'ELEVATE_URL', 'elevate.views.elevate')
+
+# Length of the token stored in the cookie.
+TOKEN_LENGTH = getattr(settings, 'ELEVATE_TOKEN_LENGTH', 12)
