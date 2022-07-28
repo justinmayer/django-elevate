@@ -80,11 +80,8 @@ jobs:
         if: ${{ steps.check_release.outputs.release=='' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
           git remote set-url origin https://$GITHUB_TOKEN@github.com/${{ github.repository }}
-          autopub prepare
-          poetry build
-          autopub commit
-          autopub githubrelease
-          poetry publish -u __token__ -p $PYPI_PASSWORD
+          autopub deploy
