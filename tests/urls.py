@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from elevate import views
 
 
 urlpatterns = [
-    url(r'^elevate/', views.elevate, name='elevate'),
+    re_path(r'^elevate/', views.elevate, name='elevate'),
 ]

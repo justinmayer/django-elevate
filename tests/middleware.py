@@ -10,7 +10,7 @@ from .base import BaseTestCase
 
 
 class ElevateMiddlewareTestCase(BaseTestCase):
-    middleware = ElevateMiddleware()
+    middleware = ElevateMiddleware(lambda x: x)
 
     def assertSignedCookieEqual(self, v1, v2, reason=None):
         value, _, _ = v1.split(':')

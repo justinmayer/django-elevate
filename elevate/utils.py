@@ -9,7 +9,7 @@ elevate.utils
 from django.core.signing import BadSignature
 from django.utils.crypto import get_random_string, constant_time_compare
 
-from elevate.settings import COOKIE_NAME, COOKIE_AGE, COOKIE_SALT
+from elevate.settings import COOKIE_NAME, COOKIE_AGE, COOKIE_SALT, TOKEN_LENGTH
 
 
 def grant_elevated_privileges(request, max_age=COOKIE_AGE):
@@ -28,7 +28,7 @@ def grant_elevated_privileges(request, max_age=COOKIE_AGE):
 
     # Token doesn't need to be unique,
     # just needs to be unpredictable and match the cookie and the session
-    token = get_random_string()
+    token = get_random_string(TOKEN_LENGTH)
     request.session[COOKIE_NAME] = token
     request._elevate = True
     request._elevate_token = token
