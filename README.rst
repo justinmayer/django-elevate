@@ -11,7 +11,7 @@ django-elevate
     :target: https://django-elevate.readthedocs.io/en/latest/
     :alt: Documentation Status
 
-.. |build-status| image:: https://img.shields.io/github/workflow/status/justinmayer/django-elevate/build
+.. |build-status| image:: https://img.shields.io/github/actions/workflow/status/justinmayer/django-elevate/main.yml?branch=main
     :target: https://github.com/justinmayer/django-elevate/actions
     :alt: Build Status
 
