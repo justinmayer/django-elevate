@@ -10,7 +10,7 @@ keywords = ["django", "security", "authentication", "permissions"]
 [tool.autopub]
 project-name = "Elevate"
 git-username = "botpub"
-git-email = "botpub@autopub.rocks"
+git-email = "52496925+botpub@users.noreply.github.com"
 changelog-file = "docs/changelog/index.rst"
 version-strings = ["setup.py"]
 tag-prefix = "v"
