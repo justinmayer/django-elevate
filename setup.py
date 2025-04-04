@@ -14,6 +14,11 @@ version = "2.0.3"
 
 install_requires = []
 
+docs_require = [
+    'sphinx',
+    'sphinx_rtd_theme',
+]
+
 tests_require = [
     'pytest',
     'pytest-cov',
@@ -54,6 +59,7 @@ setup(
     tests_require=tests_require,
     cmdclass={'test': PyTest},
     extras_require={
+        'docs': docs_require,
         'tests': tests_require,
     },
     zip_safe=True,
