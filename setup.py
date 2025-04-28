@@ -14,6 +14,11 @@ version = "2.0.3"
 
 install_requires = []
 
+docs_require = [
+    'sphinx',
+    'sphinx_rtd_theme',
+]
+
 tests_require = [
     'pytest',
     'pytest-cov',
@@ -54,6 +59,7 @@ setup(
     tests_require=tests_require,
     cmdclass={'test': PyTest},
     extras_require={
+        'docs': docs_require,
         'tests': tests_require,
     },
     zip_safe=True,
@@ -64,10 +70,11 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
         'Programming Language :: Python',
         'Topic :: Software Development',
     ],
